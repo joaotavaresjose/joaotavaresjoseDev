@@ -32,6 +32,16 @@ function Projects() {
             demo: "https://bons-sabores.vercel.app/",
             github: "https://github.com/joaotavaresjose/Bons-Sabores",
           },
+             {
+            title: "Construction Company",
+            description:
+              "",
+            image:
+              "/img/bons-sabores.png",
+            tags: ["React", "JavaScript", "CSS3" , "Tailwind CSS"],
+            demo: "https://bons-sabores.vercel.app/",
+            github: "https://github.com/joaotavaresjose/Bons-Sabores",
+          },
           {
             title: "ClimaTempo",
             description:
