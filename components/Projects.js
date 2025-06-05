@@ -29,7 +29,7 @@ function Projects() {
             image:
               "/img/bons-sabores.png",
             tags: ["React", "JavaScript", "CSS3" , "Tailwind CSS"],
-            demo: "",
+            demo: "https://bons-sabores.vercel.app/",
             github: "https://github.com/joaotavaresjose/Bons-Sabores",
           },
           {
