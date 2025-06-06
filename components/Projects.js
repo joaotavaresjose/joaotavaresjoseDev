@@ -26,19 +26,16 @@ function Projects() {
             title: "Bons Sabores",
             description:
               "Site de receitas com React, busca por ingredientes e categorias.",
-            image:
-              "/img/bons-sabores.png",
-            tags: ["React", "JavaScript", "CSS3" , "Tailwind CSS"],
+            image: "/img/bons-sabores.png",
+            tags: ["React", "JavaScript", "CSS3", "Tailwind CSS"],
             demo: "https://bons-sabores.vercel.app/",
             github: "https://github.com/joaotavaresjose/Bons-Sabores",
           },
-             {
+          {
             title: "Construction Company",
-            description:
-              "",
-            image:
-              "/img/bons-sabores.png",
-            tags: ["React", "JavaScript", "CSS3" , "Tailwind CSS"],
+            description: "Desenvolvi uma landing page moderna e responsiva para uma empresa de construção civil, com foco em destacar os serviços, equipe e projetos realizados. ",
+            image: "/img/construction-company.png",
+            tags: ["React", "JavaScript", "CSS3", "Tailwind CSS"],
             demo: "https://bons-sabores.vercel.app/",
             github: "https://github.com/joaotavaresjose/Bons-Sabores",
           },
@@ -65,7 +62,7 @@ function Projects() {
             description:
               "Site portfolio responsivo com animações suaves e design moderno.",
             image: "img/portifolio.png",
-            tags: ["HTML5", "CSS3", "JavaScript", "React" , "Tailwind CSS"],
+            tags: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS"],
             demo: "https://portfolio-roan-nine-77.vercel.app/",
             github: "https://github.com/joaotavaresjose/Portifolio-0.2.git",
           },
