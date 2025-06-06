@@ -36,8 +36,8 @@ function Projects() {
             description: "Desenvolvi uma landing page moderna e responsiva para uma empresa de construção civil, com foco em destacar os serviços, equipe e projetos realizados. ",
             image: "/img/construction-company.png",
             tags: ["React", "JavaScript", "CSS3", "Tailwind CSS"],
-            demo: "https://bons-sabores.vercel.app/",
-            github: "https://github.com/joaotavaresjose/Bons-Sabores",
+            demo: "https://construction-company-chi.vercel.app/",
+            github: "https://github.com/joaotavaresjose/Construction-Company",
           },
           {
             title: "ClimaTempo",
