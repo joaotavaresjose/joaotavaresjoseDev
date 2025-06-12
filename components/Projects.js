@@ -40,6 +40,23 @@ function Projects() {
             github: "https://github.com/joaotavaresjose/Construction-Company",
           },
           {
+            title: "Lava Clean",
+            description:
+              "Landing page profissional desenvolvida para a LavaClean, um serviço de lavanderia premium em Angola. O site destaca-se pelo design moderno, cores vibrantes e foco em conversão com botões de chamada para ação (Fazer Pedido Agora, Ver Serviços). Totalmente responsivo e otimizado para promover coleta e entrega em Luanda e arredores.",
+            image: "img/lavaclean.png",
+            tags: ["Html5", "JavaScript", "CSS3", "Tailwind CSS"],
+            demo: "https://lava-clean.vercel.app/",
+            github: "https://github.com/joaotavaresjose/Lava-Clean",
+          },
+             {
+            title: "Moto Express",
+            description: "Landing page desenvolvida para a MotoExpress, um serviço de transporte rápido via moto táxi. O projeto foca na agilidade e segurança do serviço, com uma interface limpa, objetiva e com destaque para ações imediatas como chamar Agora via WhatsApp.",
+            image: "/img/motoexpress.png",
+            tags: ["React", "JavaScript", "CSS3", "Tailwind CSS"],
+            demo: "https://moto-express.vercel.app/",
+            github: "https://github.com/joaotavaresjose/MotoExpress",
+          },
+          {
             title: "ClimaTempo",
             description:
               "Aplicativo de previsão do tempo com integração à API OpenWeatherMap.",
