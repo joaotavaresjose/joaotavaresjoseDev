@@ -33,7 +33,8 @@ function Projects() {
           },
           {
             title: "Construction Company",
-            description: "Desenvolvi uma landing page moderna e responsiva para uma empresa de construção civil, com foco em destacar os serviços, equipe e projetos realizados. ",
+            description:
+              "Desenvolvi uma landing page moderna e responsiva para uma empresa de construção civil, com foco em destacar os serviços, equipe e projetos realizados. ",
             image: "/img/construction-company.png",
             tags: ["React", "JavaScript", "CSS3", "Tailwind CSS"],
             demo: "https://construction-company-chi.vercel.app/",
@@ -48,13 +49,14 @@ function Projects() {
             demo: "https://lava-clean.vercel.app/",
             github: "https://github.com/joaotavaresjose/Lava-Clean",
           },
-             {
-            title: "Moto Express",
-            description: "Landing page desenvolvida para a MotoExpress, um serviço de transporte rápido via moto táxi. O projeto foca na agilidade e segurança do serviço, com uma interface limpa, objetiva e com destaque para ações imediatas como chamar Agora via WhatsApp.",
-            image: "/img/motoexpress.png",
+          {
+            title: "MotoTáxi-AO",
+            description:
+              "Landing page desenvolvida para a MotoTáxi-AO, um serviço de transporte rápido via moto táxi. O projeto foca na agilidade e segurança do serviço, com uma interface limpa, objetiva e com destaque para ações imediatas como chamar Agora via WhatsApp.",
+            image: "/img/mototaxi-ao.png",
             tags: ["React", "JavaScript", "CSS3", "Tailwind CSS"],
-            demo: "https://moto-express.vercel.app/",
-            github: "https://github.com/joaotavaresjose/MotoExpress",
+            demo: "https://moto-taxi-ao.vercel.app/",
+            github: "https://github.com/joaotavaresjose/MotoTaxi-AO",
           },
           {
             title: "ClimaTempo",
