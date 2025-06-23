@@ -88,7 +88,7 @@ function Hero() {
                     <div className="text-sm text-gray-300">Anos</div>
                   </div>
                   <div className="text-center hover:scale-110 transition-transform duration-300 cursor-pointer">
-                    <div className="text-2xl font-bold text-green-400">50+</div>
+                    <div className="text-2xl font-bold text-green-400">7+</div>
                     <div className="text-sm text-gray-300">Projetos</div>
                   </div>
                   <div className="text-center hover:scale-110 transition-transform duration-300 cursor-pointer">
