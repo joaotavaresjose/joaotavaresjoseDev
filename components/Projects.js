@@ -62,7 +62,7 @@ function Projects() {
             title: "FarmáciaSys",
             description:
               "Sistema de gestão de farmácias com funcionalidades de controle de estoque, vendas e relatórios.",
-            image: "img/farmacia-sys.png",
+            image: "img/farmaciasys.png",
             tags: ["React", "JavaScript", "CSS3", "Tailwind CSS"],
             demo: "https://farmacia-sys.vercel.app/",
             github: "https://github.com/joaotavaresjose/FarmaciaSys",
