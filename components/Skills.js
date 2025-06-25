@@ -7,9 +7,8 @@ function Skills() {
         const technologies = [
             { name: 'React', icon: 'code' },
             { name: 'JavaScript', icon: 'code-2' },
-            { name: 'TypeScript', icon: 'file-code' },
+            { name: 'HTML5', icon: 'file-text' },
             { name: 'CSS/SCSS', icon: 'palette' },
-            { name: 'Next.js', icon: 'zap' },
             { name: 'Tailwind CSS', icon: 'wind' }
         ];
 
@@ -17,7 +16,6 @@ function Skills() {
             { name: 'Git', icon: 'git-branch' },
             { name: 'Figma', icon: 'figma' },
             { name: 'VS Code', icon: 'code' },
-            { name: 'Chrome DevTools', icon: 'chrome' }
         ];
 
         return (
