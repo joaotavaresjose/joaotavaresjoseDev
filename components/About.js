@@ -45,7 +45,7 @@ function About() {
                             <div className="relative max-w-sm mx-auto">
                                 <div className="aspect-square rounded-2xl overflow-hidden glass-effect p-2">
                                     <img 
-                                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                                        src="img/perfil.jpg"
                                         alt="João Tavares José"
                                         className="w-full h-full object-cover rounded-xl"
                                     />
