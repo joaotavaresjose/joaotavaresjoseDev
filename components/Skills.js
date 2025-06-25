@@ -1,90 +1,70 @@
 function Skills() {
     try {
-        const [hoveredSkill, setHoveredSkill] = React.useState(null);
-
         React.useEffect(() => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.3 });
-
-            const animatedElements = document.querySelectorAll('#skills .fade-in');
-            animatedElements.forEach(el => observer.observe(el));
-
-            return () => observer.disconnect();
+            lucide.createIcons();
         }, []);
 
-        const skills = [
-            { name: 'JavaScript', icon: 'fab fa-js-square', color: 'yellow' },
-            { name: 'React', icon: 'fab fa-react', color: 'blue' },
-            { name: 'HTML5', icon: 'fab fa-html5', color: 'orange' },
-            { name: 'CSS3', icon: 'fab fa-css3-alt', color: 'blue' },
-            { name: 'TypeScript', icon: 'fab fa-js-square', color: 'blue' },
-            { name: 'Git', icon: 'fab fa-git-alt', color: 'red' },
-            { name: 'Figma', icon: 'fab fa-figma', color: 'purple'},
-            { name: 'Talwind CSS', icon: 'fab fa-tailwindcss', color: 'purple' },
+        const technologies = [
+            { name: 'React', icon: 'code' },
+            { name: 'JavaScript', icon: 'code-2' },
+            { name: 'TypeScript', icon: 'file-code' },
+            { name: 'CSS/SCSS', icon: 'palette' },
+            { name: 'Next.js', icon: 'zap' },
+            { name: 'Tailwind CSS', icon: 'wind' }
+        ];
+
+        const tools = [
+            { name: 'Git', icon: 'git-branch' },
+            { name: 'Figma', icon: 'figma' },
+            { name: 'VS Code', icon: 'code' },
+            { name: 'Chrome DevTools', icon: 'chrome' }
         ];
 
         return (
-          <section
-            id="skills"
-            data-name="skills"
-            data-file="components/Skills.js"
-            className="py-20 bg-white animate-fade-in"
-          >
-            <div className="container mx-auto px-6">
-              <div className="text-center mb-16 fade-in">
-                <h2 className="text-4xl font-bold text-gray-800 mb-4">
-                  Habilidades
-                </h2>
-                <div className="w-20 h-1 bg-purple-600 mx-auto"></div>
-                <p className="text-gray-600 mt-4">Tecnologias que domino</p>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {skills.map((skill, index) => (
-                  <div
-                    key={index}
-                    className={`bg-${skill.color}-100 text-${
-                      skill.color
-                    }-600 fade-in text-center cursor-pointer transition-all duration-3 p-6 rounded-xl ${
-                      hoveredSkill === index
-                        ? "transform scale-110 shadow-lg bg-gray-50"
-                        : "hover:scale-105"
-                    }`}
-                    style={{ transitionDelay: `${index * 0.1}s` }}
-                    onMouseEnter={() => index}
-                    onMouseLeave={() => null}
-                  >
-                    <div
-                      className={`w-16 h-16 mx-auto mb-4 bg-${skill.color}-100 rounded-full flex items-center justify-center`}
-                    >
-                      <i
-                        className={`${skill.icon} text-4xl text-${
-                          skill.color
-                        }-600 ${
-                          hoveredSkill === index ? "animate-bounce" : ""
-                        }`}
-                      ></i>
+            <section id="skills" data-name="skills" data-file="components/Skills.js" className="py-20">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-16" data-aos="fade-up">
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Habilidades</h2>
+                        <p className="text-gray-400 text-lg">Tecnologias que domino</p>
                     </div>
 
-                    <h3
-                      className={`text-lg font-semibold transition-colors duration-300 ${
-                        hoveredSkill === index
-                          ? "text-purple-600"
-                          : "text-gray-800"
-                      }`}
-                    >
-                      {skill.name}
-                    </h3>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+                    <div className="grid md:grid-cols-2 gap-12">
+                        <div data-aos="fade-right">
+                            <h3 className="text-2xl font-bold mb-8">Tecnologias</h3>
+                            <div className="grid grid-cols-2 gap-4">
+                                {technologies.map((tech, index) => (
+                                    <div 
+                                        key={index} 
+                                        className="glass-effect p-4 rounded-lg hover-scale text-center"
+                                        data-aos="zoom-in"
+                                        data-aos-delay={index * 100}
+                                    >
+                                        <i data-lucide={tech.icon} className="w-8 h-8 mx-auto mb-2 text-blue-400"></i>
+                                        <div className="font-medium">{tech.name}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div data-aos="fade-left">
+                            <h3 className="text-2xl font-bold mb-8">Ferramentas</h3>
+                            <div className="grid grid-cols-2 gap-4">
+                                {tools.map((tool, index) => (
+                                    <div 
+                                        key={index} 
+                                        className="glass-effect p-4 rounded-lg hover-scale text-center"
+                                        data-aos="zoom-in"
+                                        data-aos-delay={index * 100}
+                                    >
+                                        <i data-lucide={tool.icon} className="w-8 h-8 mx-auto mb-2 text-blue-400"></i>
+                                        <div className="font-medium">{tool.name}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         );
     } catch (error) {
         console.error('Skills component error:', error);

@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Loader Styles */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    text-align: center;
+}
+
+.colorful-loader {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.loader-ring {
+    position: absolute;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    animation: colorful-spin 2s linear infinite;
+}
+
+.loader-ring:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    border-top: 4px solid #ff6b6b;
+    animation-duration: 1.5s;
+}
+
+.loader-ring:nth-child(2) {
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    border-top: 4px solid #4ecdc4;
+    animation-duration: 2s;
+    animation-direction: reverse;
+}
+
+.loader-ring:nth-child(3) {
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    border-top: 4px solid #45b7d1;
+    animation-duration: 1.8s;
+}
+
+.loader-ring:nth-child(4) {
+    top: 30px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    border-top: 4px solid #f9ca24;
+    animation-duration: 2.2s;
+    animation-direction: reverse;
+}
+
+.loader-ring:nth-child(5) {
+    top: 40px;
+    left: 40px;
+    width: 40px;
+    height: 40px;
+    border-top: 4px solid #6c5ce7;
+    animation-duration: 1.6s;
+}
+
+@keyframes colorful-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glow-effect {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.floating-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.skill-bar {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 8px;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 10px;
+    transition: width 0.8s ease;
+}
+
+.code-icon {
+    font-size: 120px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: float 6s ease-in-out infinite;
+}

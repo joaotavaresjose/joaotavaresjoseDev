@@ -1,36 +1,97 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+
+<html lang="pt-AO">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./img/icons/log.png" type="image/x-icon">
-    <title>João Tavares José</title>
-    <meta name="description" content="Portfólio de João Tavares José, desenvolvedor web front-end especializado em React, JavaScript e interfaces modernas">
-    <meta name="keywords" content="desenvolvedor front-end, React, JavaScript, HTML, CSS, portfolio, web developer">
-    <meta property="og:title" content="João Tavares José - Desenvolvedor Web Front-end">
-    <meta property="og:description" content="Portfólio de João Tavares José, desenvolvedor web front-end especializado em React, JavaScript e interfaces modernas">
-    <meta name="twitter:title" content="João Tavares José - Desenvolvedor Web Front-end">
-    <meta name="twitter:description" content="Portfólio de João Tavares José, desenvolvedor web front-end especializado em React, JavaScript e interfaces modernas">
-    
-    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
-    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>João Tavares José - Desenvolvedor Front-end | Portfolio Profissional Angola</title>
+<meta content="Portfolio profissional de João Tavares José, desenvolvedor front-end angolano especializado em React, JavaScript e UI/UX moderno." name="description"/>
+<meta content="desenvolvedor front-end Angola, React, JavaScript, portfolio, web developer Luanda, UI/UX" name="keywords"/>
+<meta content="João Tavares José - Desenvolvedor Front-end Angola" property="og:title"/>
+<meta content="Portfolio profissional com projetos inovadores e experiência em desenvolvimento web moderno em Angola." property="og:description"/>
+<meta content="João Tavares José - Desenvolvedor Front-end Angola" name="twitter:title"/>
+<meta content="Portfolio profissional com projetos inovadores e experiência em desenvolvimento web moderno em Angola." name="twitter:description"/>
+<script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+<script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+<script src="https://resource.trickle.so/vendor_lib/unpkg/lucide@0.513.0/lucide.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<style type="text/tailwindcss">
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+</style>
+<link href="styles/main.css" rel="stylesheet"/>
 </head>
 <body>
-    <div id="root"></div>
-    
-    <script type="text/babel" src="components/Header.js"></script>
-    <script type="text/babel" src="components/Hero.js"></script>
-    <script type="text/babel" src="components/About.js"></script>
-    <script type="text/babel" src="components/Skills.js"></script>
-    <script type="text/babel" src="components/Services.js"></script>
-    <script type="text/babel" src="components/Projects.js"></script>
-    <script type="text/babel" src="components/Testimonials.js"></script>
-    <script type="text/babel" src="components/Contact.js"></script>
-    <script type="text/babel" src="components/Footer.js"></script>
-    <script type="text/babel" src="app.js"></script>
+<div class="loader-container" id="loader">
+<div class="loader">
+<div class="colorful-loader">
+<div class="loader-ring"></div>
+<div class="loader-ring"></div>
+<div class="loader-ring"></div>
+<div class="loader-ring"></div>
+<div class="loader-ring"></div>
+</div>
+</div>
+</div>
+<div id="root" style="display: none;"></div>
+<script src="components/Header.js" type="text/babel"></script>
+<script src="components/Hero.js" type="text/babel"></script>
+<script src="components/About.js" type="text/babel"></script>
+<script src="components/Skills.js" type="text/babel"></script>
+<script src="components/Projects.js" type="text/babel"></script>
+<script src="components/Contact.js" type="text/babel"></script>
+<script src="components/Footer.js" type="text/babel"></script>
+<script src="app.js" type="text/babel"></script>
 </body>
 </html>

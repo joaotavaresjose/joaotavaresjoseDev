@@ -1,249 +1,200 @@
 function Projects() {
     try {
-        const [currentSlide, setCurrentSlide] = React.useState(0);
-        const [slidesToShow, setSlidesToShow] = React.useState(1);
-        const [isDragging, setIsDragging] = React.useState(false);
+        const [currentIndex, setCurrentIndex] = React.useState(0);
         const [startX, setStartX] = React.useState(0);
-        const [translateX, setTranslateX] = React.useState(0);
+        const [isDragging, setIsDragging] = React.useState(false);
 
         React.useEffect(() => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            const elements = document.querySelectorAll('#projects .fade-in');
-            elements.forEach(el => observer.observe(el));
-
-            return () => observer.disconnect();
-        }, []);
+            lucide.createIcons();
+        }, [currentIndex]);
 
         const projects = [
-          {
-            title: "Bons Sabores",
-            description:
-              "Site de receitas com React, busca por ingredientes e categorias.",
-            image: "/img/bons-sabores.png",
-            tags: ["React", "JavaScript", "CSS3", "Tailwind CSS"],
-            demo: "https://bons-sabores.vercel.app/",
-            github: "https://github.com/joaotavaresjose/Bons-Sabores",
-          },
-          {
-            title: "Construction Company",
-            description:
-              "Desenvolvi uma landing page moderna e responsiva para uma empresa de construção civil, com foco em destacar os serviços, equipe e projetos realizados. ",
-            image: "/img/construction-company.png",
-            tags: ["React", "JavaScript", "CSS3", "Tailwind CSS"],
-            demo: "https://construction-company-chi.vercel.app/",
-            github: "https://github.com/joaotavaresjose/Construction-Company",
-          },
-          {
-            title: "Lava Clean",
-            description:
-              "Landing page profissional desenvolvida para a LavaClean, um serviço de lavanderia premium em Angola. O site destaca-se pelo design moderno, cores vibrantes e foco em conversão com botões de chamada para ação (Fazer Pedido Agora, Ver Serviços). Totalmente responsivo e otimizado para promover coleta e entrega em Luanda e arredores.",
-            image: "img/lavaclean.png",
-            tags: ["Html5", "JavaScript", "CSS3", "Tailwind CSS"],
-            demo: "https://lava-clean.vercel.app/",
-            github: "https://github.com/joaotavaresjose/Lava-Clean",
-          },
-          {
-            title: "MotoTáxi-AO",
-            description:
-              "Landing page desenvolvida para a MotoTáxi-AO, um serviço de transporte rápido via moto táxi. O projeto foca na agilidade e segurança do serviço, com uma interface limpa, objetiva e com destaque para ações imediatas como chamar Agora via WhatsApp.",
-            image: "/img/mototaxi-ao.png",
-            tags: ["React", "JavaScript", "CSS3", "Tailwind CSS"],
-            demo: "https://moto-taxi-ao.vercel.app/",
-            github: "https://github.com/joaotavaresjose/MotoTaxi-AO",
-          },
-          {
-            title: "FarmáciaSys",
-            description:
-              "Sistema de gestão de farmácias com funcionalidades de controle de estoque, vendas e relatórios.",
-            image: "img/farmaciasys.png",
-            tags: ["React", "JavaScript", "CSS3", "Tailwind CSS"],
-            demo: "https://farmacia-sys.vercel.app/",
-            github: "https://github.com/joaotavaresjose/FarmaciaSys",
-          },
-          {
-            title: "ClimaTempo",
-            description:
-              "Aplicativo de previsão do tempo com integração à API OpenWeatherMap.",
-            image: "img/climatempo.png",
-            tags: ["Html5", "JavaScript", "CSS3"],
-            demo: "https://clima-tempo-phi-one.vercel.app/",
-            github: "https://github.com/joaotavaresjose/ClimaTempo",
-          },
-          {
-            title: "Gestor de Tarefas",
-            description:
-              "Aplicativo de gerenciamento de tarefas com drag & drop e sincronização em tempo real.",
-            image: "/img/gestor-tarefas.png",
-            tags: ["React", "JavaScript", "CSS3", " Tailwind CSS"],
-            demo: "https://gestor-de-tarefa.vercel.app/",
-            github: "https://github.com/joaotavaresjose/Gestor-de-tarefa",
-          },
-          {
-            title: "Portfolio Pessoal",
-            description:
-              "Site portfolio responsivo com animações suaves e design moderno.",
-            image: "img/portifolio.png",
-            tags: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS"],
-            demo: "https://portfolio-roan-nine-77.vercel.app/",
-            github: "https://github.com/joaotavaresjose/Portifolio-0.2.git",
-          },
+            {
+                id: 1,
+                title: 'E-commerce Moderno',
+                description: 'Plataforma de e-commerce com React e Next.js para o mercado angolano',
+                image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=250&fit=crop',
+                technologies: ['React', 'Next.js', 'Tailwind'],
+                demo: '#',
+                github: '#'
+            },
+            {
+                id: 2,
+                title: 'Dashboard Analytics',
+                description: 'Dashboard interativo para análise de dados com gráficos em tempo real',
+                image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=250&fit=crop',
+                technologies: ['React', 'Chart.js', 'TypeScript'],
+                demo: '#',
+                github: '#'
+            },
+            {
+                id: 3,
+                title: 'App Mobile Responsivo',
+                description: 'Aplicação mobile-first com design responsivo e UX otimizada',
+                image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=250&fit=crop',
+                technologies: ['React Native', 'Expo', 'Redux'],
+                demo: '#',
+                github: '#'
+            },
+            {
+                id: 4,
+                title: 'Sistema de Gestão',
+                description: 'Sistema completo de gestão empresarial com relatórios avançados',
+                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=250&fit=crop',
+                technologies: ['React', 'Node.js', 'MongoDB'],
+                demo: '#',
+                github: '#'
+            }
         ];
 
-        React.useEffect(() => {
-            const updateSlidesToShow = () => {
-                if (window.innerWidth >= 1024) {
-                    setSlidesToShow(3);
-                } else if (window.innerWidth >= 768) {
-                    setSlidesToShow(2);
-                } else {
-                    setSlidesToShow(1);
-                }
-            };
-
-            updateSlidesToShow();
-            window.addEventListener('resize', updateSlidesToShow);
-            return () => window.removeEventListener('resize', updateSlidesToShow);
-        }, []);
-
-        const maxSlides = Math.max(0, projects.length - slidesToShow);
-
         const nextSlide = () => {
-            setCurrentSlide(prev => (prev >= maxSlides ? 0 : prev + 1));
+            setCurrentIndex((prev) => (prev + 1) % projects.length);
         };
 
         const prevSlide = () => {
-            setCurrentSlide(prev => (prev <= 0 ? maxSlides : prev - 1));
+            setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
         };
 
-        const goToSlide = (index) => {
-            setCurrentSlide(Math.min(index, maxSlides));
-        };
-
-        const handleStart = (clientX) => {
+        const handleTouchStart = (e) => {
+            setStartX(e.touches[0].clientX);
             setIsDragging(true);
-            setStartX(clientX);
         };
 
-        const handleMove = (clientX) => {
+        const handleTouchMove = (e) => {
             if (!isDragging) return;
-            const diff = clientX - startX;
-            setTranslateX(diff);
+            e.preventDefault();
         };
 
-        const handleEnd = () => {
+        const handleTouchEnd = (e) => {
             if (!isDragging) return;
             setIsDragging(false);
             
-            if (Math.abs(translateX) > 50) {
-                if (translateX > 0) {
-                    prevSlide();
-                } else {
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
                     nextSlide();
+                } else {
+                    prevSlide();
                 }
             }
-            setTranslateX(0);
+        };
+
+        const handleMouseDown = (e) => {
+            setStartX(e.clientX);
+            setIsDragging(true);
+        };
+
+        const handleMouseMove = (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+        };
+
+        const handleMouseUp = (e) => {
+            if (!isDragging) return;
+            setIsDragging(false);
+            
+            const endX = e.clientX;
+            const diffX = startX - endX;
+            
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
         };
 
         return (
-            <section id="projects" data-name="projects" data-file="components/Projects.js" className="py-20 bg-gray-50">
+            <section id="projects" data-name="projects" data-file="components/Projects.js" className="py-20 bg-gray-900/50">
                 <div className="container mx-auto px-6">
-                    <div className="text-center mb-16 fade-in">
-                        <h2 className="text-4xl font-bold text-gray-800 mb-4">Projetos</h2>
-                        <div className="w-20 h-1 bg-purple-600 mx-auto"></div>
+                    <div className="text-center mb-16" data-aos="fade-up">
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Projetos</h2>
+                        <p className="text-gray-400 text-lg">Alguns dos meus trabalhos recentes</p>
                     </div>
 
-                    <div className="relative carousel-container max-w-6xl mx-auto">
+                    <div className="relative max-w-6xl mx-auto">
                         <div 
-                            className="carousel-track"
-                            style={{ 
-                                transform: `translateX(${-currentSlide * (100 / slidesToShow) + (translateX / window.innerWidth * 100)}%)`,
-                                transition: isDragging ? 'none' : 'transform 0.5s ease-in-out'
-                            }}
-                            onMouseDown={(e) => handleStart(e.clientX)}
-                            onMouseMove={(e) => handleMove(e.clientX)}
-                            onMouseUp={handleEnd}
-                            onMouseLeave={handleEnd}
-                            onTouchStart={(e) => handleStart(e.touches[0].clientX)}
-                            onTouchMove={(e) => handleMove(e.touches[0].clientX)}
-                            onTouchEnd={handleEnd}
+                            className="overflow-hidden rounded-xl cursor-grab active:cursor-grabbing"
+                            onTouchStart={handleTouchStart}
+                            onTouchMove={handleTouchMove}
+                            onTouchEnd={handleTouchEnd}
+                            onMouseDown={handleMouseDown}
+                            onMouseMove={handleMouseMove}
+                            onMouseUp={handleMouseUp}
+                            onMouseLeave={() => setIsDragging(false)}
                         >
-                            {projects.map((project, index) => (
-                                <div key={index} className="carousel-slide px-2 sm:px-3">
-                                    <div className="bg-white rounded-lg shadow-lg overflow-hidden card-hover h-full max-w-sm mx-auto">
-                                        <img 
-                                            src={project.image} 
-                                            alt={project.title}
-                                            className="w-full h-40 object-cover"
-                                            draggable={false}
-                                        />
-                                        <div className="p-4">
-                                            <h3 className="text-lg font-semibold text-gray-800 mb-2">{project.title}</h3>
-                                            <p className="text-gray-600 mb-3 text-sm line-clamp-2">{project.description}</p>
-                                            
-                                            <div className="flex flex-wrap gap-1 mb-3">
-                                                {project.tags.map((tag, tagIndex) => (
-                                                    <span key={tagIndex} className="px-2 py-1 bg-purple-100 text-purple-600 rounded-full text-xs">
-                                                        {tag}
-                                                    </span>
-                                                ))}
+                            <div 
+                                className="flex transition-transform duration-500 ease-in-out"
+                                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                            >
+                                {projects.map((project) => (
+                                    <div key={project.id} className="w-full flex-shrink-0 px-2 md:px-4">
+                                        <div className="glass-effect rounded-xl overflow-hidden group shadow-2xl transform transition-all duration-300 hover:scale-105">
+                                            <div className="relative h-56 md:h-64 overflow-hidden">
+                                                <img 
+                                                    src={project.image} 
+                                                    alt={project.title}
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                                                <div className="absolute top-4 right-4">
+                                                    <div className="flex space-x-2">
+                                                        <a href={project.demo} className="w-8 h-8 gradient-bg rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                                            <i data-lucide="external-link" className="w-4 h-4"></i>
+                                                        </a>
+                                                        <a href={project.github} className="w-8 h-8 glass-effect rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                                            <i data-lucide="github" className="w-4 h-4"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
-
-                                            <div className="flex gap-2">
-                                                <a 
-                                                    href={project.demo} 
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="flex-1 bg-purple-600 text-white text-center py-2 rounded-md hover:bg-purple-700 transition-colors text-sm"
-                                                >
-                                                    <i className="fas fa-external-link-alt mr-1"></i>
-                                                    Demo
-                                                </a>
-                                                <a 
-                                                    href={project.github} 
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="flex-1 border border-purple-600 text-purple-600 text-center py-2 rounded-md hover:bg-purple-600 hover:text-white transition-colors text-sm"
-                                                >
-                                                    <i className="fab fa-github mr-1"></i>
-                                                    Código
-                                                </a>
+                                            
+                                            <div className="p-5 md:p-6">
+                                                <h3 className="text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">{project.title}</h3>
+                                                <p className="text-gray-400 mb-4 leading-relaxed text-sm md:text-base">{project.description}</p>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {project.technologies.map((tech, index) => (
+                                                        <span key={index} className="px-2 py-1 md:px-3 md:py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs md:text-sm font-medium border border-blue-500/20">
+                                                            {tech}
+                                                        </span>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
 
-                        {maxSlides > 0 && (
-                            <div>
-                                <button onClick={prevSlide} className="carousel-nav prev">
-                                    <i className="fas fa-chevron-left"></i>
-                                </button>
-                                <button onClick={nextSlide} className="carousel-nav next">
-                                    <i className="fas fa-chevron-right"></i>
-                                </button>
-                            </div>
-                        )}
-                    </div>
+                        <button 
+                            onClick={prevSlide}
+                            className="absolute left-2 md:left-0 top-1/2 transform -translate-y-1/2 md:-translate-x-4 w-10 h-10 md:w-12 md:h-12 glass-effect rounded-full flex items-center justify-center z-10 transition-colors hover:bg-blue-600/20"
+                        >
+                            <i data-lucide="chevron-left" className="w-5 h-5 md:w-6 md:h-6"></i>
+                        </button>
 
-                    {maxSlides > 0 && (
-                        <div className="carousel-dots">
-                            {Array.from({ length: maxSlides + 1 }, (_, index) => (
+                        <button 
+                            onClick={nextSlide}
+                            className="absolute right-2 md:right-0 top-1/2 transform -translate-y-1/2 md:translate-x-4 w-10 h-10 md:w-12 md:h-12 glass-effect rounded-full flex items-center justify-center z-10 transition-colors hover:bg-blue-600/20"
+                        >
+                            <i data-lucide="chevron-right" className="w-5 h-5 md:w-6 md:h-6"></i>
+                        </button>
+
+                        <div className="flex justify-center mt-8 space-x-3">
+                            {projects.map((_, index) => (
                                 <button
                                     key={index}
-                                    onClick={() => goToSlide(index)}
-                                    className={`carousel-dot ${currentSlide === index ? 'active' : ''}`}
+                                    onClick={() => setCurrentIndex(index)}
+                                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                        currentIndex === index ? 'bg-blue-500 scale-125' : 'bg-gray-600 hover:bg-gray-500'
+                                    }`}
                                 ></button>
                             ))}
                         </div>
-                    )}
+                    </div>
                 </div>
             </section>
         );
