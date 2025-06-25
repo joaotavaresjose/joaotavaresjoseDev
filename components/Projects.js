@@ -11,18 +11,18 @@ function Projects() {
         const projects = [
             {
                 id: 1,
-                title: 'E-commerce Moderno',
-                description: 'Plataforma de e-commerce com React e Next.js para o mercado angolano',
-                image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=250&fit=crop',
+                title: 'FarmaciaSys',
+                description: 'Sistema de gestão de farmácias com controle de estoque e vendas',
+                image: 'img/farmaciasys.png',
                 technologies: ['React', 'Next.js', 'Tailwind'],
                 demo: '#',
                 github: '#'
             },
             {
                 id: 2,
-                title: 'Dashboard Analytics',
-                description: 'Dashboard interativo para análise de dados com gráficos em tempo real',
-                image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=250&fit=crop',
+                title: 'MotoTaxi AO',
+                description: 'Aplicativo de mototaxi com painel administrativo e gráficos de desempenho',
+                image: 'img/motoexpress.png',
                 technologies: ['React', 'Chart.js', 'TypeScript'],
                 demo: '#',
                 github: '#'
