@@ -14,7 +14,7 @@ function Projects() {
                 title: 'FarmaciaSys',
                 description: 'Sistema de gestão de farmácias com controle de estoque e vendas',
                 image: 'img/farmaciasys.png',
-                technologies: ['React', 'Next.js', 'Tailwind'],
+                technologies: ['React', 'Tailwind Css', 'HTML', 'CSS'],
                 demo: '#',
                 github: '#'
             },
@@ -23,25 +23,25 @@ function Projects() {
                 title: 'MotoTaxi AO',
                 description: 'Aplicativo de mototaxi com painel administrativo e gráficos de desempenho',
                 image: 'img/motoexpress.png',
-                technologies: ['React', 'Chart.js', 'TypeScript'],
+                technologies: ['React', 'Tailwind Css', 'HTML', 'CSS'],
                 demo: '#',
                 github: '#'
             },
             {
                 id: 3,
-                title: 'App Mobile Responsivo',
-                description: 'Aplicação mobile-first com design responsivo e UX otimizada',
-                image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=250&fit=crop',
-                technologies: ['React Native', 'Expo', 'Redux'],
+                title: 'Construction Company',
+                description: 'Aplicativo de gerenciamento de obras com funcionalidades de planejamento e controle',
+                image: 'img/ConstructionCompany.png',
+                technologies: ['React', 'Tailwind Css', 'HTML', 'CSS'],
                 demo: '#',
                 github: '#'
             },
             {
                 id: 4,
-                title: 'Sistema de Gestão',
-                description: 'Sistema completo de gestão empresarial com relatórios avançados',
-                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=250&fit=crop',
-                technologies: ['React', 'Node.js', 'MongoDB'],
+                title: 'Bons Sabores',
+                description: 'Site de uma hamburgueria com cardápio online e sistema de pedidos',
+                image: 'img/bons-sabores.png',
+                technologies: ['React', 'Tailwind Css', 'HTML', 'CSS'],
                 demo: '#',
                 github: '#'
             }
