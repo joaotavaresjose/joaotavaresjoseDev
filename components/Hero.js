@@ -5,7 +5,7 @@ function Hero() {
         }, []);
 
         return (
-            <section id="home" data-name="hero" data-file="components/Hero.js" className="min-h-screen flex items-center justify-center relative overflow-hidden ">
+            <section id="home" data-name="hero" data-file="components/Hero.js" className="min-h-screen flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0">
                     <div className="absolute inset-0 gradient-bg opacity-5"></div>
                     <div className="absolute top-20 left-10 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl"></div>
@@ -13,41 +13,33 @@ function Hero() {
                 </div>
                 
                 <div className="container mx-auto px-6 text-center z-10">
-                    <div className="max-w-1xl mx-auto">
-                        <div className="mb-3" data-aos="zoom-in">
-                            <div className="relative inline-block">
-                                <div className="floating-animation">
-                                    <div className="w-24 h-24 md:w-25 md:h-25 gradient-bg rounded-full flex items-center justify-center mx-auto glow-effect">
-                                        <i data-lucide="code" className="w-12 h-12 md:w-16 md:h-16 text-white"></i>
-                                    </div>
-                                </div>
-                                <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full animate-pulse"></div>
-                            </div>
-                        </div>
+                    <div className="max-w-5xl mx-auto">
+                        
                         
                         <div className="mb-8">
-                           
-                            <h2 className="text-2xl md:text-3xl lg:text-3xl font-semibold text-gray-300 mb-6" data-aos="fade-up" data-aos-delay="500">
+                            <h1 data-name="title" className="text-3xl md:text-3xl lg:text-3xl font-bold mb-4" data-aos="fade-up" data-aos-delay="200">
+                                <span className="text-gradient block mt-2" data-aos="fade-up" data-aos-delay="400">João Tavares José</span>
+                            </h1>
+                            <h2 className="text-2xl md:text-5xl lg:text-5xl font-semibold text-gray-300 mb-6" data-aos="fade-up" data-aos-delay="500">
                                 Desenvolvedor Front-end
                             </h2>
                         </div>
                         
-                        <p className="text-lg md:text-xl lg:text-1xl mb-7 text-gray-300 max-w-4xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="600">
-                            Transformo ideias em experiências digitais incríveis. Especializado em React, JavaScript e design moderno, 
-                            criando soluções inovadoras para o mercado angolano e internacional.
+                        <p className="text-lg md:text-xl lg:text-2xl mb-10 text-gray-300 max-w-4xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="600">
+                            Criando experiências digitais incríveis com código limpo e design moderno. Especializado em React, JavaScript e interfaces responsivas.
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12" data-aos="fade-up" data-aos-delay="800">
                             <a 
                                 href="#"
-                                className="px-5 py-3 gradient-bg text-white font-semibold rounded-xl hover-scale glow-effect transition-all text-center text-lg shadow-2xl"
+                                className="px-10 py-4 gradient-bg text-white font-semibold rounded-xl hover-scale glow-effect transition-all text-center text-lg shadow-2xl"
                             >
                                 <i data-lucide="download" className="w-5 h-5 inline mr-2"></i>
                                 Download CV
                             </a>
                             <button 
                                 onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-                                className="px-5 py-3 glass-effect text-white font-semibold rounded-xl hover-scale transition-all border border-gray-500 text-lg"
+                                className="px-10 py-4 glass-effect text-white font-semibold rounded-xl hover-scale transition-all border border-gray-500 text-lg"
                             >
                                 <i data-lucide="message-circle" className="w-5 h-5 inline mr-2"></i>
                                 Vamos Conversar
