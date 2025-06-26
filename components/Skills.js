@@ -1,71 +1,52 @@
 function Skills() {
-    try {
-        React.useEffect(() => {
-            lucide.createIcons();
-        }, []);
+  try {
+    const skills = [
+      { name: 'HTML/CSS', icon: 'layout' },
+      { name: 'JavaScript', icon: 'code' },
+      { name: 'React', icon: 'cpu' },
+      { name: 'Tailwind CSS', icon: 'palette' }
+    ];
 
-        const technologies = [
-            { name: 'React', icon: 'code' },
-            { name: 'JavaScript', icon: 'code-2' },
-            { name: 'HTML5', icon: 'file-text' },
-            { name: 'CSS/SCSS', icon: 'palette' },
-            { name: 'Tailwind CSS', icon: 'wind' }
-        ];
+    const tools = [
+      { name: 'Git', icon: 'git-branch' },
+      { name: 'Figma', icon: 'figma' }
+    ];
 
-        const tools = [
-            { name: 'Git', icon: 'git-branch' },
-            { name: 'Figma', icon: 'figma' },
-            { name: 'VS Code', icon: 'code' },
-        ];
-
-        return (
-            <section id="skills" data-name="skills" data-file="components/Skills.js" className="py-20">
-                <div className="container mx-auto px-6">
-                    <div className="text-center mb-16" data-aos="fade-up">
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Habilidades</h2>
-                        <p className="text-gray-400 text-lg">Tecnologias que domino</p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-12">
-                        <div data-aos="fade-right">
-                            <h3 className="text-2xl font-bold mb-8">Tecnologias</h3>
-                            <div className="grid grid-cols-2 gap-4">
-                                {technologies.map((tech, index) => (
-                                    <div 
-                                        key={index} 
-                                        className="glass-effect p-4 rounded-lg hover-scale text-center"
-                                        data-aos="zoom-in"
-                                        data-aos-delay={index * 100}
-                                    >
-                                        <i data-lucide={tech.icon} className="w-8 h-8 mx-auto mb-2 text-blue-400"></i>
-                                        <div className="font-medium">{tech.name}</div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div data-aos="fade-left">
-                            <h3 className="text-2xl font-bold mb-8">Ferramentas</h3>
-                            <div className="grid grid-cols-2 gap-4">
-                                {tools.map((tool, index) => (
-                                    <div 
-                                        key={index} 
-                                        className="glass-effect p-4 rounded-lg hover-scale text-center"
-                                        data-aos="zoom-in"
-                                        data-aos-delay={index * 100}
-                                    >
-                                        <i data-lucide={tool.icon} className="w-8 h-8 mx-auto mb-2 text-blue-400"></i>
-                                        <div className="font-medium">{tool.name}</div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+    return (
+      <section id="skills" className="py-20 px-6 bg-black/20" data-name="skills" data-file="components/Skills.js">
+        <div className="container mx-auto max-w-6xl">
+          <div className="animate-on-scroll opacity-0">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">
+              Habilidades
+            </h2>
+          </div>
+          
+          <div className="animate-on-scroll opacity-0">
+            <h3 className="text-2xl font-bold mb-12 text-purple-400 text-center">Linguagens & Frameworks</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+              {skills.map((skill, index) => (
+                <div key={skill.name} className="card-hover p-6 rounded-lg bg-gradient-to-br from-purple-900/20 to-black/20 text-center">
+                  <div className={`icon-${skill.icon} text-4xl text-purple-400 mb-4 mx-auto`}></div>
+                  <h4 className="font-semibold">{skill.name}</h4>
                 </div>
-            </section>
-        );
-    } catch (error) {
-        console.error('Skills component error:', error);
-        reportError(error);
-    }
+              ))}
+            </div>
+            
+            <h3 className="text-2xl font-bold mb-12 text-purple-400 text-center">Ferramentas</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+              {tools.map((tool, index) => (
+                <div key={tool.name} className="card-hover p-6 rounded-lg bg-gradient-to-br from-purple-900/20 to-black/20 text-center">
+                  <div className={`icon-${tool.icon} text-4xl text-purple-400 mb-4 mx-auto`}></div>
+                  <h4 className="font-semibold">{tool.name}</h4>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  } catch (error) {
+    console.error('Skills component error:', error);
+    return null;
+  }
 }

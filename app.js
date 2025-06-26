@@ -1,65 +1,67 @@
-function App() {
-    try {
-        React.useEffect(() => {
-            // Inicializar AOS após o carregamento
-            setTimeout(() => {
-                if (window.AOS) {
-                    AOS.init({
-                        duration: 800,
-                        easing: 'ease-in-out',
-                        once: true,
-                        offset: 120,
-                        delay: 100
-                    });
-                }
-            }, 100);
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
 
-            // Simular carregamento e remover loader
-            setTimeout(() => {
-                const loader = document.getElementById('loader');
-                const root = document.getElementById('root');
-                
-                if (loader) {
-                    loader.style.opacity = '0';
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                        root.style.display = 'block';
-                        root.style.opacity = '0';
-                        setTimeout(() => {
-                            root.style.transition = 'opacity 0.5s ease';
-                            root.style.opacity = '1';
-                            
-                            // Re-inicializar AOS após mostrar conteúdo
-                            if (window.AOS) {
-                                AOS.refresh();
-                            }
-                        }, 50);
-                    }, 500);
-                }
-            }, 2000);
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
 
-            lucide.createIcons();
-        }, []);
+  componentDidCatch(error, errorInfo) {
+    console.error('ErrorBoundary caught an error:', error, errorInfo.componentStack);
+  }
 
-        return (
-            <div data-name="app" data-file="app.js" className="min-h-screen bg-gray-900">
-                <Header />
-                <main>
-                    <Hero />
-                    <About />
-                    <Skills />
-                    <Projects />
-                    <Contact />
-                </main>
-                <Footer />
-            </div>
-        );
-    } catch (error) {
-        console.error('App component error:', error);
-        reportError(error);
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">Something went wrong</h1>
+            <p className="text-gray-600 mb-4">We're sorry, but something unexpected happened.</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="btn btn-black"
+            >
+              Reload Page
+            </button>
+          </div>
+        </div>
+      );
     }
+
+    return this.props.children;
+  }
 }
 
-// Renderizar a aplicação
+function App() {
+  try {
+    return (
+      <div className="min-h-screen" data-name="app" data-file="app.js">
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Contact />
+        </main>
+        
+        <footer className="bg-black/50 py-8 px-6 text-center border-t border-purple-500/20">
+          <p className="text-gray-400">
+            © 2024 João Tavares José. Todos os direitos reservados.
+          </p>
+        </footer>
+      </div>
+    );
+  } catch (error) {
+    console.error('App component error:', error);
+    return null;
+  }
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(React.createElement(App));
+root.render(
+  <ErrorBoundary>
+    <App />
+  </ErrorBoundary>
+);
