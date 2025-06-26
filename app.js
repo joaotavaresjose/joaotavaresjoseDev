@@ -48,7 +48,7 @@ function App() {
         
         <footer className="bg-black/50 py-8 px-6 text-center border-t border-purple-500/20">
           <p className="text-gray-400">
-            © 2024 João Tavares José. Todos os direitos reservados.
+            © 2025 João Tavares José. Todos os direitos reservados.
           </p>
         </footer>
       </div>
