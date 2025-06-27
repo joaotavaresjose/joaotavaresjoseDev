@@ -7,51 +7,51 @@ function Projects() {
     const projects = [
       {
         id: 1,
-        title: "E-commerce Moderno",
+        title: "FarmaciaSYS",
         description: "Plataforma completa de vendas online com React e design responsivo",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+        image: "asset/FarmaciaSys.png",
         tech: ["React", "CSS", "JavaScript"],
-        link: "#"
+        link: "https://farmacia-sys.vercel.app/"
       },
       {
         id: 2,
-        title: "Dashboard Analytics",
+        title: "MotoTaxi AO",
         description: "Interface de análise de dados com gráficos interativos",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+        image: "asset/MotoTaxi-ao.png",
         tech: ["HTML", "CSS", "JavaScript"],
-        link: "#"
+        link: "https://moto-express.vercel.app/"
       },
       {
         id: 3,
-        title: "Landing Page Corporativa",
+        title: "Construction Company",
         description: "Site institucional com animações e design elegante",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+        image: "asset/ConstructionCompany.png",
         tech: ["HTML", "Tailwind", "JavaScript"],
-        link: "#"
+        link: "https://construction-company-chi.vercel.app/"
       },
       {
         id: 4,
-        title: "App de Tarefas",
+        title: "LavaClean",
         description: "Aplicativo de produtividade com interface intuitiva",
-        image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
+        image: "asset/LavaClean.png",
         tech: ["React", "CSS"],
-        link: "#"
+        link: "https://lava-clean.vercel.app/"
       },
       {
         id: 5,
-        title: "Portfolio Criativo",
+        title: "Bons Sabores",
         description: "Site de portfólio com design inovador e interativo",
-        image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=300&fit=crop",
+        image: "asset/BonsSabores.png",
         tech: ["HTML", "CSS", "JavaScript"],
-        link: "#"
+        link: "https://bons-sabores.vercel.app/"
       },
       {
         id: 6,
-        title: "Sistema de Blog",
+        title: "Gestor de tarefa",
         description: "Plataforma de blog com gerenciamento de conteúdo",
-        image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=300&fit=crop",
+        image: "asset/Gestordetarefa.png",
         tech: ["React", "Tailwind"],
-        link: "#"
+        link: "https://gestor-de-tarefa.vercel.app/"
       }
     ];
 

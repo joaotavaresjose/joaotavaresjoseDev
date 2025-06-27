@@ -19,13 +19,8 @@ function Header() {
       <header className="fixed top-0 w-full bg-black/80 backdrop-blur-md z-40 border-b border-purple-500/20" data-name="header" data-file="components/Header.js">
         <nav className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="logo-container relative">
-              <div className="text-xl font-bold text-white flex items-center space-x-3 relative z-10">
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                  <div className="icon-code text-sm text-white"></div>
-                </div>
-                <span className="tracking-wide">João TJ</span>
-              </div>
+            <div className="relative">
+              <img src="favicon.ico" className="w-full h-[60px]"></img>
             </div>
             
             <div className="hidden md:flex space-x-8">
