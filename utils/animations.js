@@ -29,19 +29,36 @@ function initScrollAnimations() {
   });
 }
 
-// Initialize loader and hide it after page load
+// Initialize loader and hide it based on actual loading
 function initLoader() {
-  window.addEventListener('load', () => {
-    const loader = document.getElementById('loader');
-    if (loader) {
-      setTimeout(() => {
+  const loader = document.getElementById('loader');
+  let loadStartTime = Date.now();
+  let minimumLoadTime = 800; // Minimum time to show loader
+  
+  // Track resource loading
+  let resourcesLoaded = 0;
+  let totalResources = document.querySelectorAll('script, link[rel="stylesheet"], img').length;
+  
+  function checkLoadComplete() {
+    const loadTime = Date.now() - loadStartTime;
+    const timeLeft = Math.max(0, minimumLoadTime - loadTime);
+    
+    setTimeout(() => {
+      if (loader) {
         loader.style.opacity = '0';
+        loader.style.transition = 'opacity 0.5s ease';
         setTimeout(() => {
           loader.style.display = 'none';
-        }, 300);
-      }, 1000);
-    }
-  });
+        }, 500);
+      }
+    }, timeLeft);
+  }
+
+  // Listen for all resources to load
+  window.addEventListener('load', checkLoadComplete);
+  
+  // Fallback for slow connections
+  setTimeout(checkLoadComplete, 3000);
 }
 
 // Initialize all animations

@@ -1,7 +1,8 @@
 function Skills() {
   try {
     const skills = [
-      { name: 'HTML/CSS', icon: 'layout' },
+      { name: 'HTML', icon: 'file-text' },
+      { name: 'CSS', icon: 'paintbrush' },
       { name: 'JavaScript', icon: 'code' },
       { name: 'React', icon: 'cpu' },
       { name: 'Tailwind CSS', icon: 'palette' }
@@ -23,7 +24,7 @@ function Skills() {
           
           <div className="animate-on-scroll opacity-0">
             <h3 className="text-2xl font-bold mb-12 text-purple-400 text-center">Linguagens & Frameworks</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mb-12">
               {skills.map((skill, index) => (
                 <div key={skill.name} className="card-hover p-6 rounded-lg bg-gradient-to-br from-purple-900/20 to-black/20 text-center">
                   <div className={`icon-${skill.icon} text-4xl text-purple-400 mb-4 mx-auto`}></div>

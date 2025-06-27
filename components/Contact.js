@@ -39,58 +39,43 @@ function Contact() {
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-12">
             <div className="animate-on-scroll opacity-0">
-              <div className="bg-gradient-to-br from-purple-900/30 to-black/30 p-8 rounded-2xl border border-purple-500/20">
-                <h3 className="text-2xl font-bold mb-6 text-white">Informações de Contato</h3>
-                <p className="text-gray-300 mb-8 leading-relaxed">
-                  Estou sempre disponível para novos desafios e projetos interessantes. 
-                  Vamos criar algo extraordinário juntos!
-                </p>
-                
-                <div className="space-y-6 mb-8">
-                  <div className="flex items-center space-x-4 p-4 bg-black/20 rounded-xl">
-                    <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center">
-                      <div className="icon-phone text-xl text-white"></div>
+              <div className="bg-gradient-to-br from-purple-900/30 to-black/30 p-6 rounded-2xl border border-purple-500/20">
+                <h3 className="text-xl font-bold mb-4 text-white">Informações de Contato</h3>
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-center space-x-3 p-3 bg-black/20 rounded-lg">
+                    <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+                      <div className="icon-phone text-sm text-white"></div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white">Telefone / WhatsApp</h4>
-                      <p className="text-purple-400 text-lg">+244 951184916</p>
+                      <h4 className="font-medium text-white text-sm">WhatsApp</h4>
+                      <p className="text-purple-400">+244 951184916</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-center space-x-4 p-4 bg-black/20 rounded-xl">
-                    <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center">
-                      <div className="icon-mail text-xl text-white"></div>
+                  <div className="flex items-center space-x-3 p-3 bg-black/20 rounded-lg">
+                    <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+                      <div className="icon-mail text-sm text-white"></div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white">Email</h4>
-                      <p className="text-purple-400 text-lg">engjoaotavaresjose@gmail.com</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-4 p-4 bg-black/20 rounded-xl">
-                    <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center">
-                      <div className="icon-clock text-xl text-white"></div>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-white">Horário de Resposta</h4>
-                      <p className="text-purple-400">24-48 horas</p>
+                      <h4 className="font-medium text-white text-sm">Email</h4>
+                      <p className="text-purple-400 text-sm">engjoaotavaresjose@gmail.com</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="border-t border-purple-500/20 pt-6">
-                  <h4 className="text-lg font-semibold mb-4 text-white">Conecte-se Comigo</h4>
-                  <div className="flex space-x-4">
-                    <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center cursor-pointer hover:bg-purple-700 transition-colors">
-                      <div className="icon-github text-lg text-white"></div>
+                <div className="border-t border-purple-500/20 pt-4">
+                  <h4 className="text-sm font-semibold mb-3 text-white">Redes Sociais</h4>
+                  <div className="flex space-x-3">
+                    <div className="w-8 h-8 bg-purple-600 rounded-md flex items-center justify-center cursor-pointer hover:bg-purple-700 transition-colors">
+                      <div className="icon-github text-sm text-white"></div>
                     </div>
-                    <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center cursor-pointer hover:bg-purple-700 transition-colors">
-                      <div className="icon-linkedin text-lg text-white"></div>
+                    <div className="w-8 h-8 bg-purple-600 rounded-md flex items-center justify-center cursor-pointer hover:bg-purple-700 transition-colors">
+                      <div className="icon-linkedin text-sm text-white"></div>
                     </div>
-                    <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center cursor-pointer hover:bg-purple-700 transition-colors">
-                      <div className="icon-twitter text-lg text-white"></div>
+                    <div className="w-8 h-8 bg-purple-600 rounded-md flex items-center justify-center cursor-pointer hover:bg-purple-700 transition-colors">
+                      <div className="icon-twitter text-sm text-white"></div>
                     </div>
                   </div>
                 </div>
@@ -98,9 +83,9 @@ function Contact() {
             </div>
             
             <div className="animate-on-scroll opacity-0 animate-delay-200">
-              <div className="bg-gradient-to-br from-purple-900/30 to-black/30 p-8 rounded-2xl border border-purple-500/20">
-                <h3 className="text-2xl font-bold mb-6 text-white">Envie uma Mensagem</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="bg-gradient-to-br from-purple-900/30 to-black/30 p-6 rounded-2xl border border-purple-500/20">
+                <h3 className="text-xl font-bold mb-4 text-white">Envie uma Mensagem</h3>
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium mb-2 text-gray-300">Nome Completo</label>
@@ -142,12 +127,12 @@ function Contact() {
                   
                   <div>
                     <label className="block text-sm font-medium mb-2 text-gray-300">Mensagem</label>
-                    <textarea
+                      <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      rows="6"
+                      rows="4"
                       className="w-full px-4 py-3 bg-black/40 border border-purple-500/30 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 text-white resize-none transition-all"
                       placeholder="Descreva seu projeto ou dúvida..."
                     ></textarea>
@@ -155,16 +140,11 @@ function Contact() {
                   
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-4 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-3 font-semibold text-lg shadow-lg hover:shadow-green-500/25"
+                    className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-3 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 font-semibold shadow-lg hover:shadow-green-500/25"
                   >
-                    <div className="icon-message-circle text-xl"></div>
+                    <div className="icon-message-circle text-lg"></div>
                     <span>Enviar via WhatsApp</span>
-                    <div className="icon-external-link text-lg"></div>
                   </button>
-                  
-                  <p className="text-center text-gray-400 text-sm">
-                    Ao enviar, você será redirecionado para o WhatsApp com a mensagem preenchida
-                  </p>
                 </form>
               </div>
             </div>

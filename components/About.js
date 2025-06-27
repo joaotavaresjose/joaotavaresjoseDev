@@ -49,7 +49,7 @@ function About() {
                     <div className="flex items-center space-x-3">
                       <div className="icon-trophy text-xl text-purple-400"></div>
                       <div>
-                        <p className="text-2xl font-bold text-white">7+</p>
+                        <p className="text-2xl font-bold text-white">50+</p>
                         <p className="text-gray-400 text-sm">Projetos concluídos</p>
                       </div>
                     </div>
@@ -64,7 +64,7 @@ function About() {
                 <div className="relative bg-gradient-to-br from-purple-900/40 to-black/40 p-8 rounded-2xl border border-purple-500/30">
                   <div className="w-64 h-64 mx-auto rounded-2xl overflow-hidden border-4 border-purple-500 shadow-2xl">
                     <img 
-                      src="perfil.jpg" 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
                       alt="João Tavares José - Desenvolvedor Front-end"
                       className="w-full h-full object-cover"
                     />
