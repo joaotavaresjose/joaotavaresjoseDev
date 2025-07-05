@@ -10,7 +10,7 @@ function About() {
           </div>
           
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-            <div className="animate-on-scroll opacity-0 order-2 lg:order-1">
+            <div className="animate-on-scroll opacity-0 animate-fade-in-left order-2 lg:order-1">
               <div className="space-y-8">
                 <div>
                   <h3 className="text-3xl font-bold mb-6 text-white">
@@ -49,7 +49,7 @@ function About() {
                     <div className="flex items-center space-x-3">
                       <div className="icon-trophy text-xl text-purple-400"></div>
                       <div>
-                        <p className="text-2xl font-bold text-white">7+</p>
+                        <p className="text-2xl font-bold text-white">50+</p>
                         <p className="text-gray-400 text-sm">Projetos concluídos</p>
                       </div>
                     </div>
@@ -58,13 +58,13 @@ function About() {
               </div>
             </div>
             
-            <div className="animate-on-scroll opacity-0 animate-delay-200 order-1 lg:order-2">
+            <div className="animate-on-scroll opacity-0 animate-fade-in-right animate-delay-200 order-1 lg:order-2">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-2xl transform rotate-6"></div>
                 <div className="relative bg-gradient-to-br from-purple-900/40 to-black/40 p-8 rounded-2xl border border-purple-500/30">
                   <div className="w-64 h-64 mx-auto rounded-2xl overflow-hidden border-4 border-purple-500 shadow-2xl">
                     <img 
-                      src="perfil.jpg" 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
                       alt="João Tavares José - Desenvolvedor Front-end"
                       className="w-full h-full object-cover"
                     />
@@ -80,8 +80,8 @@ function About() {
             </div>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 animate-on-scroll opacity-0 animate-delay-400">
-            <div className="bg-gradient-to-br from-purple-900/30 to-black/30 p-8 rounded-2xl border border-purple-500/20 card-hover text-center">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-purple-900/30 to-black/30 p-8 rounded-2xl border border-purple-500/20 card-hover text-center animate-on-scroll opacity-0 animate-fade-in-up animate-delay-400">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <div className="icon-code text-2xl text-white"></div>
               </div>
@@ -91,7 +91,7 @@ function About() {
               </p>
             </div>
             
-            <div className="bg-gradient-to-br from-purple-900/30 to-black/30 p-8 rounded-2xl border border-purple-500/20 card-hover text-center">
+            <div className="bg-gradient-to-br from-purple-900/30 to-black/30 p-8 rounded-2xl border border-purple-500/20 card-hover text-center animate-on-scroll opacity-0 animate-fade-in-up animate-delay-600">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <div className="icon-smartphone text-2xl text-white"></div>
               </div>

@@ -22,21 +22,21 @@ function Skills() {
             </h2>
           </div>
           
-          <div className="animate-on-scroll opacity-0">
+          <div className="animate-on-scroll opacity-0 animate-fade-in-up animate-delay-200">
             <h3 className="text-2xl font-bold mb-12 text-purple-400 text-center">Linguagens & Frameworks</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mb-12">
               {skills.map((skill, index) => (
-                <div key={skill.name} className="card-hover p-6 rounded-lg bg-gradient-to-br from-purple-900/20 to-black/20 text-center">
+                <div key={skill.name} className="card-hover p-6 rounded-lg bg-gradient-to-br from-purple-900/20 to-black/20 text-center animate-on-scroll opacity-0 animate-fade-in-up" style={{animationDelay: `${0.4 + index * 0.1}s`}}>
                   <div className={`icon-${skill.icon} text-4xl text-purple-400 mb-4 mx-auto`}></div>
                   <h4 className="font-semibold">{skill.name}</h4>
                 </div>
               ))}
             </div>
             
-            <h3 className="text-2xl font-bold mb-12 text-purple-400 text-center">Ferramentas</h3>
+            <h3 className="text-2xl font-bold mb-12 text-purple-400 text-center animate-on-scroll opacity-0 animate-fade-in-up animate-delay-600">Ferramentas</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
               {tools.map((tool, index) => (
-                <div key={tool.name} className="card-hover p-6 rounded-lg bg-gradient-to-br from-purple-900/20 to-black/20 text-center">
+                <div key={tool.name} className="card-hover p-6 rounded-lg bg-gradient-to-br from-purple-900/20 to-black/20 text-center animate-on-scroll opacity-0 animate-fade-in-up" style={{animationDelay: `${0.8 + index * 0.1}s`}}>
                   <div className={`icon-${tool.icon} text-4xl text-purple-400 mb-4 mx-auto`}></div>
                   <h4 className="font-semibold">{tool.name}</h4>
                 </div>

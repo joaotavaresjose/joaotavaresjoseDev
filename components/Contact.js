@@ -3,8 +3,11 @@ function Contact() {
     const [formData, setFormData] = React.useState({
       name: '',
       email: '',
-      message: ''
+      message: '',
+      subject: ''
     });
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
+    const [submitMessage, setSubmitMessage] = React.useState('');
 
     const handleChange = (e) => {
       setFormData({
@@ -13,18 +16,38 @@ function Contact() {
       });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
+      setIsSubmitting(true);
       
-      // Criar mensagem para WhatsApp
-      const message = `Olá João! Meu nome é ${formData.name}.%0A%0AEmail: ${formData.email}%0A%0AMensagem: ${formData.message}`;
-      const whatsappUrl = `https://wa.me/244951184916?text=${message}`;
+      try {
+        // Salvar contato no banco de dados
+        await trickleCreateObject('contact', {
+          Name: formData.name,
+          Email: formData.email,
+          Subject: formData.subject || 'Contato via Portfolio',
+          Message: formData.message,
+          Status: 'Novo'
+        });
+        
+        // Criar mensagem para WhatsApp
+        const message = `Olá João! Meu nome é ${formData.name}.%0A%0AEmail: ${formData.email}%0A%0AMensagem: ${formData.message}`;
+        const whatsappUrl = `https://wa.me/244951184916?text=${message}`;
+        
+        // Abrir WhatsApp
+        window.open(whatsappUrl, '_blank');
+        
+        // Limpar formulário
+        setFormData({ name: '', email: '', message: '', subject: '' });
+        setSubmitMessage('Mensagem enviada com sucesso!');
+        
+      } catch (error) {
+        console.error('Erro ao enviar mensagem:', error);
+        setSubmitMessage('Erro ao enviar mensagem. Tente novamente.');
+      }
       
-      // Abrir WhatsApp
-      window.open(whatsappUrl, '_blank');
-      
-      // Limpar formulário
-      setFormData({ name: '', email: '', message: '' });
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitMessage(''), 3000);
     };
 
     return (
@@ -40,7 +63,7 @@ function Contact() {
           </div>
           
           <div className="grid lg:grid-cols-2 gap-12">
-            <div className="animate-on-scroll opacity-0">
+            <div className="animate-on-scroll opacity-0 animate-fade-in-left animate-delay-200">
               <div className="bg-gradient-to-br from-purple-900/30 to-black/30 p-6 rounded-2xl border border-purple-500/20">
                 <h3 className="text-xl font-bold mb-4 text-white">Informações de Contato</h3>
                 <div className="space-y-4 mb-6">
@@ -82,7 +105,7 @@ function Contact() {
               </div>
             </div>
             
-            <div className="animate-on-scroll opacity-0 animate-delay-200">
+            <div className="animate-on-scroll opacity-0 animate-fade-in-right animate-delay-400">
               <div className="bg-gradient-to-br from-purple-900/30 to-black/30 p-6 rounded-2xl border border-purple-500/20">
                 <h3 className="text-xl font-bold mb-4 text-white">Envie uma Mensagem</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -138,12 +161,19 @@ function Contact() {
                     ></textarea>
                   </div>
                   
+                  {submitMessage && (
+                    <div className={`text-center p-3 rounded-lg ${submitMessage.includes('sucesso') ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
+                      {submitMessage}
+                    </div>
+                  )}
+                  
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-3 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 font-semibold shadow-lg hover:shadow-green-500/25"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 disabled:opacity-50 text-white py-3 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 font-semibold shadow-lg hover:shadow-green-500/25"
                   >
                     <div className="icon-message-circle text-lg"></div>
-                    <span>Enviar via WhatsApp</span>
+                    <span>{isSubmitting ? 'Enviando...' : 'Enviar via WhatsApp'}</span>
                   </button>
                 </form>
               </div>

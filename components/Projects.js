@@ -3,75 +3,60 @@ function Projects() {
     const [currentSlide, setCurrentSlide] = React.useState(0);
     const [touchStart, setTouchStart] = React.useState(0);
     const [touchEnd, setTouchEnd] = React.useState(0);
-
-    const projects = [
-      {
-        id: 1,
-        title: "FarmaciaSYS",
-        description: "Plataforma completa de vendas online com React e design responsivo",
-        image: "asset/FarmaciaSys.png",
-        tech: ["React", "CSS", "JavaScript"],
-        link: "https://farmacia-sys.vercel.app/"
-      },
-      {
-        id: 2,
-        title: "MotoTaxi AO",
-        description: "Interface de análise de dados com gráficos interativos",
-        image: "asset/MotoTaxi-ao.png",
-        tech: ["HTML", "CSS", "JavaScript"],
-        link: "https://moto-express.vercel.app/"
-      },
-      {
-        id: 3,
-        title: "Construction Company",
-        description: "Site institucional com animações e design elegante",
-        image: "asset/ConstructionCompany.png",
-        tech: ["HTML", "Tailwind", "JavaScript"],
-        link: "https://construction-company-chi.vercel.app/"
-      },
-      {
-        id: 4,
-        title: "LavaClean",
-        description: "Aplicativo de produtividade com interface intuitiva",
-        image: "asset/LavaClean.png",
-        tech: ["React", "CSS"],
-        link: "https://lava-clean.vercel.app/"
-      },
-      {
-        id: 5,
-        title: "Bons Sabores",
-        description: "Site de portfólio com design inovador e interativo",
-        image: "asset/BonsSabores.png",
-        tech: ["HTML", "CSS", "JavaScript"],
-        link: "https://bons-sabores.vercel.app/"
-      },
-      {
-        id: 6,
-        title: "Gestor de tarefa",
-        description: "Plataforma de blog com gerenciamento de conteúdo",
-        image: "asset/Gestordetarefa.png",
-        tech: ["React", "Tailwind"],
-        link: "https://gestor-de-tarefa.vercel.app/"
-      }
-    ];
-
-    const getItemsPerSlide = () => {
-      if (window.innerWidth >= 1024) return 3; // lg
-      if (window.innerWidth >= 768) return 2;  // md
-      return 1; // sm
-    };
-
-    const [itemsPerSlide, setItemsPerSlide] = React.useState(getItemsPerSlide);
+    const [projects, setProjects] = React.useState([]);
+    const [loading, setLoading] = React.useState(true);
+    const [itemsPerSlide, setItemsPerSlide] = React.useState(1);
 
     React.useEffect(() => {
+      const loadProjects = async () => {
+        try {
+          const dataSync = DataSync();
+          const projectsData = await dataSync.syncProjects();
+          // Filtrar apenas projetos concluídos para o portfolio público
+          const completedProjects = projectsData.filter(project => 
+            project.status === 'Concluído'
+          );
+          setProjects(completedProjects);
+        } catch (error) {
+          console.error('Erro ao carregar projetos:', error);
+        }
+        setLoading(false);
+      };
+      
+      loadProjects();
+      
+      // Atualizar projetos a cada 30 segundos para manter sincronizado
+      const interval = setInterval(loadProjects, 30000);
+      return () => clearInterval(interval);
+    }, []);
+
+    React.useEffect(() => {
+      const getItemsPerSlide = () => {
+        if (window.innerWidth >= 1024) return 3;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+      };
+
       const handleResize = () => {
         setItemsPerSlide(getItemsPerSlide());
         setCurrentSlide(0);
       };
 
+      setItemsPerSlide(getItemsPerSlide());
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    if (loading) {
+      return (
+        <section id="projects" className="py-20 px-6 bg-black/10" data-name="projects" data-file="components/Projects.js">
+          <div className="container mx-auto max-w-7xl text-center">
+            <div className="text-purple-400">Carregando projetos...</div>
+          </div>
+        </section>
+      );
+    }
+
 
     const maxSlides = Math.max(0, projects.length - itemsPerSlide);
 
@@ -114,7 +99,7 @@ function Projects() {
             </p>
           </div>
 
-          <div className="relative animate-on-scroll opacity-0">
+          <div className="relative animate-on-scroll opacity-0 animate-fade-in-up animate-delay-200">
             <div className="overflow-hidden rounded-2xl">
               <div 
                 className="flex transition-transform duration-500 ease-in-out"
