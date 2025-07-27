@@ -36,22 +36,71 @@ class ErrorBoundary extends React.Component {
 
 function App() {
   try {
+    const [activeSection, setActiveSection] = React.useState('home');
+
+    React.useEffect(() => {
+      // Hide loader after 3 seconds with fade animation
+      const timer = setTimeout(() => {
+        const loader = document.getElementById('loader');
+        if (loader) {
+          loader.style.opacity = '0';
+          loader.style.transition = 'opacity 0.5s ease-out';
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 500);
+        }
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }, []);
+
+    React.useEffect(() => {
+      const handleScroll = () => {
+        const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+        const scrollPosition = window.scrollY + 100;
+
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const offsetTop = element.offsetTop;
+            const offsetHeight = element.offsetHeight;
+            
+            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+              setActiveSection(section);
+              break;
+            }
+          }
+        }
+
+        // Animate elements on scroll
+        const animateElements = document.querySelectorAll('.animate-on-scroll, .animate-fade-in, .animate-slide-left, .animate-slide-right, .animate-scale');
+        animateElements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('show');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      
+      // Trigger animation check on mount
+      handleScroll();
+      
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-      <div className="min-h-screen" data-name="app" data-file="app.js">
-        <Header />
-        <main>
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
-        </main>
-        
-        <footer className="bg-black/50 py-8 px-6 text-center border-t border-purple-500/20">
-          <p className="text-gray-400">
-            © 2024 João Tavares José. Todos os direitos reservados.
-          </p>
-        </footer>
+      <div className="min-h-screen bg-[var(--bg-light)]" data-name="portfolio-app" data-file="app.js">
+        <Header activeSection={activeSection} />
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+        <Footer />
       </div>
     );
   } catch (error) {

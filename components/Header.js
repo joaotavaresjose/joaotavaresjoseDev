@@ -1,59 +1,89 @@
-function Header() {
+function Header({ activeSection }) {
   try {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-    const smoothScroll = (e, targetId) => {
-      e.preventDefault();
-      const element = document.getElementById(targetId);
+    const scrollToSection = (sectionId) => {
+      const element = document.getElementById(sectionId);
       if (element) {
-        const headerHeight = 80;
-        const elementPosition = element.offsetTop - headerHeight;
-        window.scrollTo({
-          top: elementPosition,
-          behavior: 'smooth'
-        });
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsMenuOpen(false);
       }
     };
 
+    const navItems = [
+      { id: 'home', label: 'Início' },
+      { id: 'about', label: 'Sobre' },
+      { id: 'skills', label: 'Habilidades' },
+      { id: 'projects', label: 'Projetos' },
+      { id: 'contact', label: 'Contato' }
+    ];
+
     return (
-      <header className="fixed top-0 w-full bg-black/80 backdrop-blur-md z-40 border-b border-purple-500/20" data-name="header" data-file="components/Header.js">
-        <nav className="container mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="logo-container relative">
-              <div className="text-xl font-bold text-white flex items-center space-x-3 relative z-10">
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                  <div className="icon-code text-sm text-white"></div>
+      <header className="fixed top-0 w-full bg-[var(--bg-white)]/95 backdrop-blur-sm z-50 border-b border-[var(--border-color)]" data-name="header" data-file="components/Header.js">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <div className="w-10 h-10 bg-gradient-to-br from-[var(--primary-color)] to-[var(--accent-color)] rounded-lg flex items-center justify-center shadow-lg">
+                  <span className="text-white font-bold text-lg">JT</span>
                 </div>
-                <span className="tracking-wide">João TJ</span>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full border-2 border-white"></div>
+              </div>
+              <div className="hidden sm:block">
+                <div className="text-xl font-bold text-gradient leading-tight">
+                  João Tavares José
+                </div>
+                <div className="text-xs text-[var(--text-secondary)] font-medium">
+                  Frontend Developer
+                </div>
               </div>
             </div>
-            
-            <div className="hidden md:flex space-x-8">
-              <a href="#home" className="hover:text-purple-400 transition-colors cursor-pointer" onClick={(e) => smoothScroll(e, 'home')}>Início</a>
-              <a href="#about" className="hover:text-purple-400 transition-colors cursor-pointer" onClick={(e) => smoothScroll(e, 'about')}>Sobre</a>
-              <a href="#skills" className="hover:text-purple-400 transition-colors cursor-pointer" onClick={(e) => smoothScroll(e, 'skills')}>Habilidades</a>
-              <a href="#projects" className="hover:text-purple-400 transition-colors cursor-pointer" onClick={(e) => smoothScroll(e, 'projects')}>Projetos</a>
-              <a href="#contact" className="hover:text-purple-400 transition-colors cursor-pointer" onClick={(e) => smoothScroll(e, 'contact')}>Contato</a>
-            </div>
-            
-            <button 
-              className="md:hidden text-white"
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex space-x-8">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    activeSection === item.id
+                      ? 'text-[var(--primary-color)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--primary-color)]'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100"
             >
-              <div className="icon-menu text-xl"></div>
+              <div className={`icon-${isMenuOpen ? 'x' : 'menu'} text-xl text-[var(--text-primary)]`}></div>
             </button>
           </div>
-          
+
+          {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 space-y-2">
-              <a href="#home" className="block hover:text-purple-400 transition-colors py-2 cursor-pointer" onClick={(e) => { smoothScroll(e, 'home'); setIsMenuOpen(false); }}>Início</a>
-              <a href="#about" className="block hover:text-purple-400 transition-colors py-2 cursor-pointer" onClick={(e) => { smoothScroll(e, 'about'); setIsMenuOpen(false); }}>Sobre</a>
-              <a href="#skills" className="block hover:text-purple-400 transition-colors py-2 cursor-pointer" onClick={(e) => { smoothScroll(e, 'skills'); setIsMenuOpen(false); }}>Habilidades</a>
-              <a href="#projects" className="block hover:text-purple-400 transition-colors py-2 cursor-pointer" onClick={(e) => { smoothScroll(e, 'projects'); setIsMenuOpen(false); }}>Projetos</a>
-              <a href="#contact" className="block hover:text-purple-400 transition-colors py-2 cursor-pointer" onClick={(e) => { smoothScroll(e, 'contact'); setIsMenuOpen(false); }}>Contato</a>
-            </div>
+            <nav className="md:hidden py-4 border-t border-[var(--border-color)]">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`block w-full text-left py-2 px-4 text-sm font-medium transition-colors duration-200 ${
+                    activeSection === item.id
+                      ? 'text-[var(--primary-color)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--primary-color)]'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
           )}
-        </nav>
+        </div>
       </header>
     );
   } catch (error) {

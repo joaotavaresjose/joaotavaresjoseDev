@@ -3,11 +3,9 @@ function Contact() {
     const [formData, setFormData] = React.useState({
       name: '',
       email: '',
-      message: '',
-      subject: ''
+      message: ''
     });
     const [isSubmitting, setIsSubmitting] = React.useState(false);
-    const [submitMessage, setSubmitMessage] = React.useState('');
 
     const handleChange = (e) => {
       setFormData({
@@ -20,163 +18,185 @@ function Contact() {
       e.preventDefault();
       setIsSubmitting(true);
       
-      try {
-        // Salvar contato no banco de dados
-        await trickleCreateObject('contact', {
-          Name: formData.name,
-          Email: formData.email,
-          Subject: formData.subject || 'Contato via Portfolio',
-          Message: formData.message,
-          Status: 'Novo'
-        });
-        
-        // Criar mensagem para WhatsApp
-        const message = `Olá João! Meu nome é ${formData.name}.%0A%0AEmail: ${formData.email}%0A%0AMensagem: ${formData.message}`;
-        const whatsappUrl = `https://wa.me/244951184916?text=${message}`;
-        
-        // Abrir WhatsApp
-        window.open(whatsappUrl, '_blank');
-        
-        // Limpar formulário
-        setFormData({ name: '', email: '', message: '', subject: '' });
-        setSubmitMessage('Mensagem enviada com sucesso!');
-        
-      } catch (error) {
-        console.error('Erro ao enviar mensagem:', error);
-        setSubmitMessage('Erro ao enviar mensagem. Tente novamente.');
-      }
+      // Prepare WhatsApp message
+      const whatsappMessage = `Olá João! 
+
+*Nome:* ${formData.name}
+*Email:* ${formData.email}
+
+*Mensagem:*
+${formData.message}
+
+---
+Enviado através do seu portfólio`;
+
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      const whatsappUrl = `https://wa.me/244951184916?text=${encodedMessage}`;
       
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitMessage(''), 3000);
+      // Open WhatsApp
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+        setFormData({ name: '', email: '', message: '' });
+        setIsSubmitting(false);
+      }, 500);
     };
 
+    const contactInfo = [
+      {
+        icon: 'mail',
+        title: 'Email',
+        value: 'engjoaotavaresjose@gmail.com',
+        link: 'mailto:engjoaotavaresjose@gmail.com',
+        description: 'Envie um email para discussões detalhadas'
+      },
+      {
+        icon: 'phone',
+        title: 'WhatsApp',
+        value: '+244 951 184 916',
+        link: 'https://wa.me/244951184916',
+        description: 'Resposta rápida via WhatsApp'
+      },
+      {
+        icon: 'map-pin',
+        title: 'Localização',
+        value: 'Viana/Caop B, Angola',
+        link: '#',
+        description: 'Disponível para projetos locais e remotos'
+      },
+      {
+        icon: 'linkedin',
+        title: 'LinkedIn',
+        value: '/in/joao-tavares-jose',
+        link: 'https://linkedin.com/in/joao-tavares-jose',
+        description: 'Conecte-se profissionalmente'
+      }
+    ];
+
     return (
-      <section id="contact" className="py-20 px-6 bg-gradient-to-b from-black/20 to-purple-900/10" data-name="contact" data-file="components/Contact.js">
-        <div className="container mx-auto max-w-6xl">
-          <div className="animate-on-scroll opacity-0">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 gradient-text">
-              Entre em Contato
+      <section id="contact" className="section-padding bg-[var(--bg-light)]" data-name="contact" data-file="components/Contact.js">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 animate-on-scroll">
+              Entre em <span className="text-gradient">Contato</span>
             </h2>
-            <p className="text-center text-gray-400 text-lg mb-16 max-w-2xl mx-auto">
-              Vamos transformar suas ideias em realidade digital. Entre em contato para discutir seu próximo projeto.
+            <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto animate-fade-in stagger-animation" style={{"--delay": "0.2s"}}>
+              Tem um projeto em mente? Vamos conversar e criar algo incrível juntos!
             </p>
           </div>
-          
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="animate-on-scroll opacity-0 animate-fade-in-left animate-delay-200">
-              <div className="bg-gradient-to-br from-purple-900/30 to-black/30 p-6 rounded-2xl border border-purple-500/20">
-                <h3 className="text-xl font-bold mb-4 text-white">Informações de Contato</h3>
-                <div className="space-y-4 mb-6">
-                  <div className="flex items-center space-x-3 p-3 bg-black/20 rounded-lg">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
-                      <div className="icon-phone text-sm text-white"></div>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-white text-sm">WhatsApp</h4>
-                      <p className="text-purple-400">+244 951184916</p>
-                    </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Info */}
+            <div className="animate-slide-left">
+              <h3 className="text-2xl font-bold mb-8">Vamos nos conectar</h3>
+              
+              {/* WhatsApp Quick Contact */}
+              <div className="mb-8 p-6 bg-green-50 rounded-xl border border-green-200">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                    <div className="icon-message-circle text-lg text-white"></div>
                   </div>
-                  
-                  <div className="flex items-center space-x-3 p-3 bg-black/20 rounded-lg">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
-                      <div className="icon-mail text-sm text-white"></div>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-white text-sm">Email</h4>
-                      <p className="text-purple-400 text-sm">engjoaotavaresjose@gmail.com</p>
-                    </div>
+                  <div>
+                    <h4 className="font-semibold text-green-800">Contato Rápido</h4>
+                    <p className="text-sm text-green-600">Fale comigo agora pelo WhatsApp</p>
                   </div>
                 </div>
-                
-                <div className="border-t border-purple-500/20 pt-4">
-                  <h4 className="text-sm font-semibold mb-3 text-white">Redes Sociais</h4>
-                  <div className="flex space-x-3">
-                    <div className="w-8 h-8 bg-purple-600 rounded-md flex items-center justify-center cursor-pointer hover:bg-purple-700 transition-colors">
-                      <div className="icon-github text-sm text-white"></div>
+                <a
+                  href="https://wa.me/244951184916?text=Olá João! Vi seu portfólio e gostaria de conversar sobre um projeto."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-600 transition-colors duration-200"
+                >
+                  <div className="icon-phone text-lg"></div>
+                  Chamar no WhatsApp
+                </a>
+              </div>
+              
+              <div className="space-y-6">
+                {contactInfo.map((info, index) => (
+                  <a
+                    key={index}
+                    href={info.link}
+                    className="flex items-start gap-4 p-6 rounded-xl bg-[var(--bg-white)] hover:shadow-lg transition-all duration-300 border border-[var(--border-color)] hover:border-[var(--primary-color)]/30"
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-[var(--primary-color)]/10 flex items-center justify-center flex-shrink-0">
+                      <div className={`icon-${info.icon} text-lg text-[var(--primary-color)]`}></div>
                     </div>
-                    <div className="w-8 h-8 bg-purple-600 rounded-md flex items-center justify-center cursor-pointer hover:bg-purple-700 transition-colors">
-                      <div className="icon-linkedin text-sm text-white"></div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-[var(--text-primary)] mb-1">{info.title}</h4>
+                      <p className="text-[var(--primary-color)] font-medium mb-1">{info.value}</p>
+                      <p className="text-[var(--text-secondary)] text-sm">{info.description}</p>
                     </div>
-                    <div className="w-8 h-8 bg-purple-600 rounded-md flex items-center justify-center cursor-pointer hover:bg-purple-700 transition-colors">
-                      <div className="icon-twitter text-sm text-white"></div>
-                    </div>
-                  </div>
-                </div>
+                  </a>
+                ))}
               </div>
             </div>
-            
-            <div className="animate-on-scroll opacity-0 animate-fade-in-right animate-delay-400">
-              <div className="bg-gradient-to-br from-purple-900/30 to-black/30 p-6 rounded-2xl border border-purple-500/20">
-                <h3 className="text-xl font-bold mb-4 text-white">Envie uma Mensagem</h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-2 text-gray-300">Nome Completo</label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 bg-black/40 border border-purple-500/30 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 text-white transition-all"
-                        placeholder="Seu nome completo"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2 text-gray-300">Email</label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 bg-black/40 border border-purple-500/30 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 text-white transition-all"
-                        placeholder="seu@email.com"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2 text-gray-300">Assunto</label>
-                    <input
-                      type="text"
-                      name="subject"
-                      value={formData.subject || ''}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-black/40 border border-purple-500/30 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 text-white transition-all"
-                      placeholder="Assunto da mensagem"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2 text-gray-300">Mensagem</label>
-                      <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows="4"
-                      className="w-full px-4 py-3 bg-black/40 border border-purple-500/30 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 text-white resize-none transition-all"
-                      placeholder="Descreva seu projeto ou dúvida..."
-                    ></textarea>
-                  </div>
-                  
-                  {submitMessage && (
-                    <div className={`text-center p-3 rounded-lg ${submitMessage.includes('sucesso') ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
-                      {submitMessage}
-                    </div>
-                  )}
-                  
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 disabled:opacity-50 text-white py-3 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 font-semibold shadow-lg hover:shadow-green-500/25"
-                  >
-                    <div className="icon-message-circle text-lg"></div>
-                    <span>{isSubmitting ? 'Enviando...' : 'Enviar via WhatsApp'}</span>
-                  </button>
-                </form>
+
+            {/* Contact Form */}
+            <div className="card animate-slide-right">
+              <div className="flex items-center gap-3 mb-6">
+                <h3 className="text-2xl font-bold">Envie uma mensagem</h3>
+                <div className="flex items-center gap-2 text-sm text-green-600 bg-green-50 px-3 py-1 rounded-full">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  Resposta em 24h
+                </div>
               </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    Nome
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-[var(--border-color)] rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
+                    placeholder="Seu nome completo"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-[var(--border-color)] rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
+                    placeholder="seu@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    Mensagem
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={5}
+                    className="w-full px-4 py-3 border border-[var(--border-color)] rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent resize-none"
+                    placeholder="Conte-me sobre seu projeto..."
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+                </button>
+              </form>
             </div>
           </div>
         </div>
