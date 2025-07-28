@@ -50,9 +50,6 @@ function Hero() {
                 </span>
               </h1>
               
-              <h2 className="text-xl sm:text-2xl text-[var(--text-secondary)] mb-8 animate-slide-left stagger-animation" style={{"--delay": "0.2s"}}>
-                Desenvolvedor front-end especializado em React e JavaScript
-              </h2>
               
               <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-xl leading-relaxed animate-slide-left stagger-animation" style={{"--delay": "0.4s"}}>
                 Crio interfaces modernas e funcionais que conectam pessoas e geram resultados excepcionais.
