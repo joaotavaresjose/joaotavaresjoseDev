@@ -10,9 +10,6 @@ function Skills() {
           'HTML5',
           'CSS3',
           'Tailwind CSS',
-          'TypeScript',
-          'Next.js',
-          'Vue.js'
         ]
       },
       {
@@ -23,10 +20,6 @@ function Skills() {
           'GitHub',
           'Figma',
           'VS Code',
-          'Webpack',
-          'Vite',
-          'NPM',
-          'Yarn'
         ]
       },
       {
